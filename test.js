@@ -276,3 +276,49 @@ function unique(array) {
 }
 
 console.log('Uniques', unique(numbers5));
+console.clear();
+
+const team = {
+  members: ['Jane', 'Bill'],
+  teamName: 'Super Squad',
+  teamSummary() {
+    // var self = this;
+    return this.members.map(
+      function(member) {
+        console.log(`${member} is in team ${this.teamName}`);
+      }.bind(this)
+    );
+  }
+};
+team.teamSummary();
+console.clear();
+
+function createBookShop(invetory) {
+  return {
+    invetory,
+    invetoryValue() {
+      return this.invetory.reduce((acc, book) => acc + book.price, 0);
+    },
+    priceForTitle(title) {
+      // let { price } = this.invetory.find(book => book.title === title);
+
+      // return price;
+      return this.invetory.find(book => book.title === title).price;
+    }
+  };
+}
+
+const invetory = [
+  { title: 'Harry Potter', price: 10 },
+  { title: 'Javascript', price: 20 }
+];
+
+const bookShop = createBookShop(invetory);
+
+console.log(bookShop.invetoryValue());
+
+console.log(bookShop.priceForTitle('Javascript'));
+
+console.clear();
+
+function saveFile() {}
