@@ -321,4 +321,85 @@ console.log(bookShop.priceForTitle('Javascript'));
 
 console.clear();
 
-function saveFile() {}
+function addNumbers(...numbers) {
+  return numbers.reduce((sum, number) => {
+    return sum + number;
+  }, 0);
+}
+
+console.log(addNumbers(1, 2, 3, 4, 5));
+
+let myColors = ['red', 'blue'];
+let eleniColors = ['red', 'green'];
+
+// let familyColors = myColors.concat(eleniColors);
+
+let familyColors = [...myColors, ...eleniColors];
+
+console.log('My Colors', familyColors);
+console.clear();
+
+let expense = {
+  type: 'Business',
+  ammount: '$45 USD'
+};
+
+let { type, ammount } = expense;
+
+console.log(`The type is ${type} and the ammount is ${ammount}`);
+console.clear();
+
+let newFiles = {
+  extension: '.jpg',
+  name: 'repost',
+  size: 1400
+};
+
+function fileSummary({ extension, name, size }) {
+  return `The file ${name}${extension} is ${size} bytes`;
+}
+
+console.log(fileSummary(newFiles));
+console.clear();
+
+let eteries = ['google', 'facebook', 'Uber'];
+
+let [google, facebook, uber] = eteries;
+
+console.log(google, facebook, uber);
+console.clear();
+
+const Google = {
+  locations: ['Mount view', ['New York', 'boston'], 'London']
+};
+
+const {
+  locations: [location1, [city1, city2]]
+} = Google;
+
+console.log(location1, city1, city2);
+console.clear();
+
+function signUp({ username, password, email, date, city = 'Thessaloniki' }) {
+  console.log(city);
+  // create new user
+}
+
+let userDe = {
+  username: 'myname',
+  password: 123214,
+  email: 'bkkostas',
+  date: '1/1/1',
+  city: undefined
+};
+
+signUp(userDe);
+console.clear();
+
+const points = [[4, 5], [3, 2], [5, 6]];
+
+let trelos = points.map(([x, y]) => {
+  return { x, y };
+});
+
+console.log(trelos);
