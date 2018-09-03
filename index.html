@@ -8,12 +8,35 @@
   <link rel="stylesheet" href="style.css">
   <title>Javascript Sandbox</title>
 </head>
-<h1>Javascript Sandbox</h1>
-<div id="text"></div>
-<button id="buttonClick">Click Me</button>
 
 <body>
-  <script src="index.html"></script>
+
+  <head>
+    <h1>Javascript Sandbox</h1>
+  </head>
+  <section class="outputSection">
+    <div class="outputBox">
+      <h2>Tasks</h2>
+      <form name="fitlerForm">
+        <label for="filter"></label>
+        <input type="text" id="filter">
+      </form>
+      <ul id="outputList">
+
+      </ul>
+    </div>
+  </section>
+  <section class="inputSection">
+    <h2>Add Task</h2>
+    <form name="inputForm" id="inputForm">
+      <label for="task" class="labels"></label>
+      <input type="text" name="task">
+      <button type="submit">Click me</button>
+    </form>
+  </section>
+
+  <script src="index.js"></script>
+  <script src="test.js"></script>
 </body>
 
 </html>
