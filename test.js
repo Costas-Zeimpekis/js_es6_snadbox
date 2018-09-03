@@ -148,3 +148,131 @@ let car1 = cars1.find(car => car.model === 'Focus');
 
 console.log(cars1);
 console.log(car1);
+
+console.clear();
+
+let computers = [
+  { name: 'Apple', ram: 24 },
+  { name: 'Compaq', ram: 4 },
+  { name: 'Acer', ram: 32 }
+];
+
+let allComputers = computers.every(computer => computer > 16);
+let someComputers = computers.some(computer => computer.ram > 16);
+
+console.log('All Computers:', allComputers);
+console.log('Some Computers:', someComputers);
+
+console.clear();
+
+let names = ['Costas', 'Eleni', 'Fan'];
+
+let allMoreThan4 = names.every(name => name.length >= 4);
+let someMoreThan4 = names.some(name => name.length >= 4);
+
+console.log('Every:', allMoreThan4);
+console.log('Some:', someMoreThan4);
+
+function Field(value) {
+  this.value = value;
+}
+
+Field.prototype.validate = function() {
+  return this.value.length > 10;
+};
+
+var username = new Field('2cool');
+var password = new Field('my_password');
+let birthdate = new Field('10/10/1980');
+
+let fields = [username, password, birthdate];
+
+let validateFiedls = fields.every(field => field.validate());
+
+console.log('Every Validate:', validateFiedls);
+console.clear();
+
+let numbers4 = [10, 20, 30];
+
+let sum4 = 1;
+
+// for (let i = 0; i < numbers4.length; i++) {
+//   sum4 += numbers4[i];
+// }
+
+sum4 = numbers4.reduce((sum, number) => {
+  return sum + number;
+}, sum4);
+
+console.log(sum4);
+console.clear();
+
+let primaryColors = [{ color: 'red' }, { color: 'blue' }, { color: 'green' }];
+
+// let colors2 = primaryColor.map(color => color.color);
+
+let colors2 = primaryColors.reduce((accumilator, color) => {
+  accumilator.push(color.color);
+
+  return accumilator;
+}, []);
+
+console.log(colors2);
+console.clear();
+
+let interview;
+
+function balancedParens(string) {
+  return !string.split('').reduce((previous, char) => {
+    if (previous < 0) return previous;
+    if (char === ')') {
+      return --previous;
+    }
+
+    if (char === '(') {
+      return ++previous;
+    }
+
+    return previous;
+  }, 0);
+}
+
+console.log(balancedParens(')(())('));
+console.clear();
+var desks = [
+  { type: 'sitting' },
+  { type: 'standing' },
+  { type: 'sitting' },
+  { type: 'sitting' },
+  { type: 'standing' }
+];
+
+var deskTypes = desks.reduce(
+  function(accumulator, desk) {
+    if (desk.type === 'sitting') {
+      ++accumulator.sitting;
+      return accumulator;
+    }
+    if (desk.type === 'standing') {
+      ++accumulator.standing;
+      return accumulator;
+    }
+    return accumulator;
+  },
+  { sitting: 0, standing: 0 }
+);
+
+console.log(deskTypes);
+
+var numbers5 = [1, 1, 2, 3];
+
+function unique(array) {
+  return array.reduce(function(acc, number) {
+    if (acc.includes(number)) return acc;
+
+    acc.push(number);
+    return acc;
+  }, []);
+}
+
+console.log('Uniques', unique(numbers5));
