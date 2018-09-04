@@ -403,3 +403,78 @@ let trelos = points.map(([x, y]) => {
 });
 
 console.log(trelos);
+console.clear();
+
+class Amaxi {
+  constructor({ title }) {
+    this.title = title;
+  }
+
+  drive() {
+    console.log('Voom');
+  }
+}
+
+class Toyota extends Amaxi {
+  constructor(options) {
+    super(options);
+    this.color = options.color;
+  }
+
+  honk() {
+    super.drive();
+    console.log('Beep');
+  }
+}
+
+const amaxara = new Toyota({ color: 'Red', title: 'parta' });
+
+console.log(amaxara.title);
+amaxara.drive();
+amaxara.honk();
+
+console.clear();
+// For OF Loop
+const hromata = ['red', 'blue', 'green'];
+
+for (let hroma of hromata) {
+  console.log(hroma);
+}
+console.clear();
+
+// Generators
+
+function* taxidia() {
+  yield 'red';
+  yield 'blue';
+  yield 'green';
+}
+
+const myTaxidia = [];
+for (let taxidi of taxidia()) {
+  myTaxidia.push(taxidi);
+}
+
+console.log(myTaxidia);
+
+const engineerTeam = {
+  size: 3,
+  department: 'Engineering',
+  lead: 'Jill',
+  manager: 'Costas',
+  engineering: 'Dave'
+};
+
+function* teamIterator(team) {
+  yield team.lead;
+  yield team.manager;
+  yield team.engineering;
+}
+
+const names3 = [];
+
+for (let name of teamIterator(engineerTeam)) {
+  names3.push(name);
+}
+
+console.log(names3);
