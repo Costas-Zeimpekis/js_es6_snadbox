@@ -478,3 +478,4 @@ for (let name of teamIterator(engineerTeam)) {
 }
 
 console.log(names3);
+console.clear();
